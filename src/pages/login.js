@@ -1,23 +1,20 @@
-import NavbarComponent from "@/Components/Navbar";
-import HomeContainer from "@/Containers/HomeContainer";
+import LoginContainer from "@/Containers/LoginContainer";
 import { whoAmI } from "@/api/auth";
 import { COOKIE_TOKEN_KEY } from "@/utils/constants";
 import Cookies from "js-cookie";
 import Head from "next/head";
 
-
-export default function Home() {
+export default function Login() {
   return (
     <>
       <Head>
-        <title>Dashboad</title>
+        <title>Login</title>
       </Head>
       <main>
-      <NavbarComponent/>
-        <HomeContainer/>
+        <LoginContainer/>
       </main>
     </>
-  )
+  );
 }
 
 export async function getServerSideProps(context) {
@@ -25,10 +22,6 @@ export async function getServerSideProps(context) {
 
   if (!authToken) {
     return {
-      redirect: {
-        permanent: true,
-        destination: "/login",
-      },
       props: {},
     };
   }
@@ -38,17 +31,17 @@ export async function getServerSideProps(context) {
   if (!myDetails) {
     Cookies.remove(COOKIE_TOKEN_KEY);
     return {
-      redirect: {
-        permanent: true,
-        destination: "/login",
-      },
       props: {},
     };
   }
 
   return {
+    redirect: {
+      permanent: true,
+      destination: "/",
+    },
     props: {
       user: myDetails.user,
-    },
+    }, // will be passed to the page component as props
   };
 }
