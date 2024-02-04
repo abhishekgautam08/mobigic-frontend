@@ -9,7 +9,7 @@ import SpinnerComponent from "@/Components/Spinner/Spinner";
 import { useRouter } from "next/router";
 
 const HomeContainer = () => {
-    const router = useRouter();
+  const router = useRouter();
   const [file, setFile] = useState();
   const [selectedFileName, setSelectedFileName] = useState("");
   const [otp, setOtp] = useState("");
@@ -19,8 +19,7 @@ const HomeContainer = () => {
   const [removeFileData, setRemoveFileData] = useState("");
   const [showDownload, setShowDownload] = useState(false);
   const [downloadFileData, setDownloadFileData] = useState("");
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
+  // const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onDrop = useCallback((acceptedFiles) => {
     // Check if there is exactly one file
@@ -78,6 +77,7 @@ const HomeContainer = () => {
       setShowOtp(true);
     }
   };
+
   useEffect(() => {
     (async () => {
       const filesData = await getAllFiles();
@@ -88,8 +88,6 @@ const HomeContainer = () => {
     })();
   }, []);
 
-
-
   const handleRemoveFile = async (file) => {
     setShowRemove(true);
     setRemoveFileData(file._id);
@@ -99,15 +97,14 @@ const HomeContainer = () => {
     setShowDownload(true);
     setDownloadFileData(file);
   };
-  const handleOtpModel = ()=>{
-   setShowOtp(false)
-         router.reload();
+  const handleOtpModel = () => {
+    setShowOtp(false);
+    router.reload();
+  };
 
-  }
-
-if (isSubmitting) {
-  return <SpinnerComponent />;
-}
+  // if (isSubmitting) {
+  //   return <SpinnerComponent />;
+  // }
   return (
     <Container>
       <Col>

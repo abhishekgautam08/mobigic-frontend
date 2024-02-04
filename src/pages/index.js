@@ -5,7 +5,6 @@ import { COOKIE_TOKEN_KEY } from "@/utils/constants";
 import Cookies from "js-cookie";
 import Head from "next/head";
 
-
 export default function Home() {
   return (
     <>
@@ -13,11 +12,11 @@ export default function Home() {
         <title>Dashboad</title>
       </Head>
       <main>
-      <NavbarComponent/>
-        <HomeContainer/>
+        <NavbarComponent />
+        <HomeContainer />
       </main>
     </>
-  )
+  );
 }
 
 export async function getServerSideProps(context) {

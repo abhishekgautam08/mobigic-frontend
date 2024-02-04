@@ -26,7 +26,7 @@ const SignupContainer = () => {
     setIsSubmitting(true);
 
     Cookies.set(COOKIE_TOKEN_KEY, signupDetails.token);
-    router.replace("/login");
+    router.replace("/");
   };
 
   const onChange = (e) => {

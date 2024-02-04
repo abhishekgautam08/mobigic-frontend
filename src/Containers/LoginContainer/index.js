@@ -8,7 +8,6 @@ import { loginUser } from "@/api/auth";
 import SpinnerComponent from "@/Components/Spinner/Spinner";
 import { toast } from "react-toastify";
 
-
 const LoginContainer = () => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,8 +27,6 @@ const LoginContainer = () => {
 
     Cookies.set(COOKIE_TOKEN_KEY, loginDetails.token);
     router.replace("/");
-       
-
   };
 
   const onChange = (e) => {

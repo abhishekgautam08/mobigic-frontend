@@ -6,18 +6,20 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 
 const NavbarComponent = () => {
-     const router = useRouter();
+  const router = useRouter();
 
-     const logout = () => {
-       logoutUser();
-       router.replace("/login");
-     };
+  const logout = () => {
+    logoutUser();
+    router.replace("/login");
+  };
 
   return (
     <Navbar fixed="top" expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/" style={{fontWeight:"bolder"}}>MobigicTest</Navbar.Brand>
-        <Button variant="dark"  onClick={logout}>
+        <Navbar.Brand href="/" style={{ fontWeight: "bolder" }}>
+          MobigicTest
+        </Navbar.Brand>
+        <Button variant="dark" onClick={logout}>
           Logout
         </Button>
       </Container>
